@@ -1,0 +1,37 @@
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+
+    <table class="table-fixed w-full">
+      <thead>
+        <tr class="bg-blue-400 text-white">
+       <th >ID </th>
+       	<th >Last Name </th>
+			<th >First Name </th>
+			<th >Gender</th>
+			<th >Date of Birth </th>
+			<th> Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each person}}
+        <tr>
+          <td class="py-2 px-6">{{id}}</td>
+          <td class="p-2">{{lastName}}</td>
+          <td class="p-2">{{firstName}}</td>
+          <td class="p-2">{{gender}}</td>
+          <td class="p-2">{{dateBirth}}</td>
+          <td class="p-2 flex">
+            <form action="/person/delete" method="POST" class="mx-2">
+              <input type="hidden" value="{{id}}" name="id">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-sm" type="submit">
+                <i class="fas fa-trash"></i></button>
+            </form>
+            <a href="/person/edit/{{id}}" class="bg-blue-400 text-white px-3 py-1 rounded-sm">
+              <i class="fas fa-pen"></i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
